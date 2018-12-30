@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:demo/biz/common/dto/Result.dart';
+import 'package:demo/models/common/Result.dart';
 
 
 String host = 'http://wechat-api-dev.yifen7.cn/';
@@ -12,7 +12,7 @@ Future<Result> commonRequest(String path, String requestBody) async{
     SharedPreferences sp = await SharedPreferences.getInstance();
     Map<String, dynamic> headers = {
 //      'Session-Key': sp.getString(LoginConstant.SESSION_KEY)
-      'Session-Key': '67d125476d9f4c7ea2b6bbf1521fd1f8'
+      'Session-Key': '4258fda85eac4f7eb911100878fd6edb'
     };
     Options options= new Options(
       baseUrl: host,

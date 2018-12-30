@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:demo/biz/login/dto/LoginSession.dart';
-import 'package:demo/biz/login/constant/LoginConstant.dart';
+import 'package:demo/models/user/login_session.dart';
+import 'package:demo/constants/LoginConstant.dart';
 
 class ShareDataUtil{
 

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:demo/shared/page/homePage/homePage.dart';
-import 'package:demo/shared/page/myInfo/myInfo.dart';
-import 'package:demo/shared/page/activity/activityPage.dart';
+import 'package:demo/widgets/homePage/home_page.dart';
+import 'package:demo/widgets/myInfo/my_info.dart';
+import 'package:demo/widgets/activity/activityPage.dart';
 
 void main(){
 //  debugPaintSizeEnabled = true;

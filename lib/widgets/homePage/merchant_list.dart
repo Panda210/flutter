@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:demo/biz/product/dto/MerchantInfo.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
+
+import 'package:demo/models/product/merchant_info.dart';
+import 'package:demo/models/app_state.dart';
 
 class MerchantList extends StatefulWidget{
 
@@ -13,7 +17,6 @@ class MerchantList extends StatefulWidget{
   State<StatefulWidget> createState() {
     return MerchantListState();
   }
-
 
 }
 // 页面的主要的展示
@@ -80,14 +83,29 @@ class MerchantListState extends State<MerchantList>{
 
   @override
   Widget build(BuildContext context) {
-    print('widget.merchantList${widget.merchantList}');
+//    return Container(
+//      padding: const EdgeInsets.all(3.0),
+//      child: ListView(
+//        padding: const EdgeInsets.symmetric(vertical: 8.0),
+//        children: store.state.merchantList != null ? store.state.merchantList.map((MerchantInfo record){
+//          return merchantItem(record);
+//        }).toList() : [],
+//      )
+//    );
+
     return Container(
       padding: const EdgeInsets.all(3.0),
       child: ListView(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
-        children: widget.merchantList != null ? widget.merchantList.map((MerchantInfo record){
-          return merchantItem(record);
-        }).toList() : [],
+        // ignore: argument_type_not_assignable
+        children: new StoreConnector<AppState,List<MerchantInfo>> (
+            converter: (store) =>store.state.merchantList,
+            builder: (context,merchantList) {
+              merchantList != null ? merchantList.map((MerchantInfo record){
+                return merchantItem(record);
+              }).toList() : [];
+            },
+          ),
       )
     );
   }

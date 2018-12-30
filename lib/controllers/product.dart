@@ -1,11 +1,13 @@
-import 'package:demo/biz/common/controller/CommonController.dart';
-import 'package:demo/biz/product/dto/MerchantInfo.dart';
-import 'package:demo/biz/product/dto/MerchantRequestDto.dart';
-import 'package:demo/biz/product/dto/MerchantAndCityDto.dart';
-import 'package:demo/biz/common/dto/Result.dart';
-import 'dart:convert';
+import 'package:redux/redux.dart';
 
-List<MerchantInfo> queryMerchantList() {
+import 'package:demo/controllers/common.dart';
+import 'package:demo/models/product/merchant_info.dart';
+import 'package:demo/models/product/merchant_request.dart';
+import 'package:demo/models/product/merchant_city.dart';
+import 'package:demo/models/common/Result.dart';
+import 'package:demo/actions/product/action.dart';
+
+queryMerchantList(Store store) {
   List<MerchantInfo> merchantInfoList = [];
   // 请求参数
   MerchantRequestDto merchantRequestDto = new MerchantRequestDto();
@@ -18,14 +20,14 @@ List<MerchantInfo> queryMerchantList() {
       print('result.value.runtimeType:${result.value.runtimeType}');
       MerchantAndCityDto merchantAndCityDto = MerchantAndCityDto.fromJson(result.value);
 
-      print('merchantAndCityDto:${merchantAndCityDto.merchantInfoList.runtimeType}');
-      merchantInfoList = merchantAndCityDto.merchantInfoList;
-      print('得到结果了？');
-      return merchantInfoList;
+      print('merchantAndCityDto:${merchantAndCityDto.merchantList.runtimeType}');
+      merchantInfoList = merchantAndCityDto.merchantList;
+      print('得到结果####################');
+      store.dispatch(new QueryMerchantListResultAction(merchantInfoList));
     }
   });
 
-  print('调用到了这边了吗？');
+//  print('调用到了这边了吗？');
 //  merchantInfoList = <MerchantInfo>[
 //    MerchantInfo(merchantCode: 'M15272294210000000536', merchantName:'上海南山医院',imageUrl: 'http://cdn.yifen7.cn/yifenqi/wxapp/main/p_list_nanshan5.25.png'),
 //    MerchantInfo(merchantCode: 'M15349938410000000578', merchantName:'上海铭悦医美',imageUrl: 'http://cdn.yifen7.cn/yifenqi/wxapp/main/p_list_mingyue.png')

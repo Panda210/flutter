@@ -1,4 +1,4 @@
-import 'package:demo/biz/product/dto/MerchantInfo.dart';
+import 'package:demo/models/product/merchant_info.dart';
 
 class MerchantAndCityDto {
 
@@ -8,9 +8,9 @@ class MerchantAndCityDto {
 
   String city;
 
-  List<MerchantInfo> merchantInfoList;
+  List<MerchantInfo> merchantList;
 
-  MerchantAndCityDto({this.channelId,this.userId,this.city,this.merchantInfoList});
+  MerchantAndCityDto({this.channelId,this.userId,this.city,this.merchantList});
 
   factory MerchantAndCityDto.fromJson(Map<String, dynamic> json) {
 
@@ -25,7 +25,7 @@ class MerchantAndCityDto {
         channelId: json['channelId'],
         userId: json['userId'],
         city: json['city'],
-        merchantInfoList: merchantInfoList
+        merchantList: merchantInfoList
     );
   }
 
@@ -33,6 +33,6 @@ class MerchantAndCityDto {
     'channelId': channelId,
     'userId': userId,
     'city':city,
-    'merchantInfoList':merchantInfoList
+    'merchantInfoList':merchantList
   };
 }

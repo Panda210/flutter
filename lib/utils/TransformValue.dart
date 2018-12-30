@@ -1,4 +1,4 @@
-import 'package:demo/biz/common/dto/Result.dart';
+import 'package:demo/models/common/Result.dart';
 
 class TransformValue {
 
