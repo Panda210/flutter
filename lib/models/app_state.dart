@@ -19,8 +19,25 @@ class AppState{
 
   AppState({this.loginSession,this.userInfo,this.merchantList});
 
+  factory AppState.initState(){
+    return new AppState(
+        loginSession: new LoginSession(),
+        userInfo: new UserInfo(),
+        merchantList: <MerchantInfo>[
+          MerchantInfo(merchantCode: 'M15272294210000000536', merchantName:'上海南山医院',imageUrl: 'http://cdn.yifen7.cn/yifenqi/wxapp/main/p_list_nanshan5.25.png'),
+          MerchantInfo(merchantCode: 'M15349938410000000578', merchantName:'上海铭悦医美',imageUrl: 'http://cdn.yifen7.cn/yifenqi/wxapp/main/p_list_mingyue.png')
+        ]
+    );
+  }
+
+
+  Map<String, dynamic> toJson() =>{
+    'loginSession': json.encode(loginSession),
+    'userInfo': json.encode(userInfo)
+  };
+
   @override
   String toString() {
-    return 'AppState{loginSession: ${json.encode(loginSession)}, userInfo: ${json.encode(userInfo)}}';
+    return 'AppState{loginSession: ${json.encode(loginSession)}, userInfo: ${json.encode(userInfo)}, merchantList: ${json.encode(merchantList)}';
   }
 }
