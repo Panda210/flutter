@@ -6,6 +6,8 @@ class LoginConstant{
   static final String USER_ID = "USER_ID";
   // 登录相关的缓存key - 用户名
   static final String USER_NAME = "USER_NAME";
+  // 登录相关的缓存key - 联系电话
+  static final String PHONE_NUMBER = "PHONE_NUMBER";
   // 登录相关的缓存key - 是否登录
   static final String IS_LOGIN = "IS_LOGIN";
   // 登录相关的缓存key - sessionKey

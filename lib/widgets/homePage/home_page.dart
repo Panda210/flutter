@@ -39,6 +39,11 @@ class HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin<H
     queryMerchantList(getStore());
   }
 
+  onRefresh(){
+    print('aaaa');
+    queryMerchantList(getStore());
+  }
+
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState,List<MerchantInfo>>(
@@ -48,9 +53,6 @@ class HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin<H
             appBar: AppBar(
               title: Text('首页'),
             ),
-//            body: Container(
-//              child: new Text('数量'),
-//            )
             body: MerchantList(
               cityName:'上海',
               merchantList: merchantList,

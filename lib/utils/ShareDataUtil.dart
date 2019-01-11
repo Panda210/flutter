@@ -12,6 +12,7 @@ class ShareDataUtil{
     await sp.setInt(LoginConstant.CHANNEL_ID, loginSession.channelId);
     await sp.setString(LoginConstant.USER_ID, loginSession.userId);
     await sp.setString(LoginConstant.USER_NAME, loginSession.userName);
+    await sp.setString(LoginConstant.PHONE_NUMBER, loginSession.phoneNumber);
     await sp.setString(LoginConstant.SESSION_KEY, loginSession.sessionKey);
     await sp.setBool(LoginConstant.IS_LOGIN, true);
   }
@@ -30,6 +31,7 @@ class ShareDataUtil{
         channelId: sp.getInt(LoginConstant.CHANNEL_ID),
         userId: sp.getString(LoginConstant.USER_ID),
         userName: sp.getString(LoginConstant.USER_NAME),
+        phoneNumber: sp.get(LoginConstant.PHONE_NUMBER),
         sessionKey: sp.getString(LoginConstant.SESSION_KEY),
         isLogin: sp.getBool(LoginConstant.IS_LOGIN)
     );
@@ -52,6 +54,12 @@ class ShareDataUtil{
   static Future<String> getUserName() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     return sp.getString(LoginConstant.USER_NAME);
+  }
+
+  // 获取当前登录用户联系电话
+  static Future<String> getUserPhoneNumber() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    return sp.getString(LoginConstant.PHONE_NUMBER);
   }
 
   // 获取当前登录用户SessionKey

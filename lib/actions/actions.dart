@@ -1,6 +1,11 @@
 // 定义Action的Type枚举类
 enum Actions{
-  QueryMerchantList
+  QueryMerchantList,
+  QueryMerchantListResult,
+  Login,
+  LoginResult,
+  Logout,
+  LogoutResult
 }
 
 

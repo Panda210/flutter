@@ -19,9 +19,11 @@ class AppState{
 
   AppState({this.loginSession,this.userInfo,this.merchantList});
 
+  // 初始化数据信息
   factory AppState.initState(){
+
     return new AppState(
-        loginSession: new LoginSession(),
+        loginSession: LoginSession.initState(),
         userInfo: new UserInfo(),
         merchantList: <MerchantInfo>[
           MerchantInfo(merchantCode: 'M15272294210000000536', merchantName:'上海南山医院',imageUrl: 'http://cdn.yifen7.cn/yifenqi/wxapp/main/p_list_nanshan5.25.png'),
@@ -29,6 +31,12 @@ class AppState{
         ]
     );
   }
+
+  // 数据同名替换，新增
+  factory AppState.copy(AppState oldAppState){
+
+  }
+
 
 
   Map<String, dynamic> toJson() =>{
