@@ -9,3 +9,5 @@ class LoginResultAction extends Action{
   UserInfo userInfo;
   LoginResultAction(this.loginSession,this.userInfo):super(type: Actions.LoginResult);
 }
+
+

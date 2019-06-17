@@ -9,7 +9,7 @@ class Result<T> {
 
   factory Result.fromJson(Map<String, dynamic> json) {
     return Result(
-      success: json['success'],
+      success: json['success'] ,
       errorCode:json['errorCode'],
       errorMsg:json['errorMsg'],
       value:json['value'],

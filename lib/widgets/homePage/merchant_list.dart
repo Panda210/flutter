@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux/redux.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:demo/models/product/merchant_info.dart';
-import 'package:demo/models/app_state.dart';
 
 class MerchantList extends StatefulWidget{
 
@@ -27,7 +25,7 @@ class MerchantListState extends State<MerchantList>{
    */
   Widget merchantItem(MerchantInfo record){
     return Container(
-      padding: const EdgeInsets.only(bottom: 8.0),
+      padding: EdgeInsets.only(bottom: 8 ),
       child: Column(
         children: <Widget>[
           Stack(
@@ -49,7 +47,7 @@ class MerchantListState extends State<MerchantList>{
                         record.merchantName,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 25,
+                            fontSize: ScreenUtil().setSp(30),
                             color: Color.fromRGBO(120,205,202,1)
                         ),
                       ),
@@ -63,7 +61,7 @@ class MerchantListState extends State<MerchantList>{
                         '立即申请',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: ScreenUtil().setSp(20),
                             color: Colors.white
                         ),
                       ),

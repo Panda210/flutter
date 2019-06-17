@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:demo/utils/CommonUtil.dart';
 import 'package:demo/utils/ShareDataUtil.dart';
@@ -91,7 +92,7 @@ class RegisterPageState extends State<RegisterPage>{
               '注册',
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 32.0,
+                  fontSize: ScreenUtil().setSp(80),
                   color: Color(0xffc4c4c4)
               ),
             ),
@@ -166,7 +167,7 @@ class RegisterPageState extends State<RegisterPage>{
                               return CommonUtil.checkValidateNumber(number);
                             },
                           ),
-                          flex: 2,
+                          flex: 3,
                         ),
                         Expanded(
                           child: Container(
@@ -187,7 +188,7 @@ class RegisterPageState extends State<RegisterPage>{
                               },
                             ),
                           ),
-                          flex: 1,
+                          flex: 2,
                         )
                       ],
                     ),

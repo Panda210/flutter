@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:demo/models/app_state.dart';
 import 'package:demo/models/user/login_session.dart';
@@ -73,7 +74,7 @@ class MyInfoPageState extends State<MyInfoPage>{
                             '名片',
                             style: TextStyle(
                               color: Colors.black45,
-                              fontSize: 32
+                              fontSize: ScreenUtil().setSp(32)
                             ),
                           ),
                         ),
@@ -86,7 +87,7 @@ class MyInfoPageState extends State<MyInfoPage>{
                               icon: Icon(Icons.perm_identity),
                               hintStyle: TextStyle(
                                 color: Colors.black,
-                                fontSize: 20
+                                fontSize: ScreenUtil().setSp(20)
                               )
                             ),
                           ),
@@ -100,7 +101,7 @@ class MyInfoPageState extends State<MyInfoPage>{
                                 icon: Icon(Icons.phone),
                                 hintStyle: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 20
+                                    fontSize: ScreenUtil().setSp(20)
                                 )
                             ),
                           ),

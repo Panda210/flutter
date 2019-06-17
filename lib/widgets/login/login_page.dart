@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:demo/models/app_state.dart';
 import 'package:demo/models/user/login_session.dart';
@@ -80,18 +81,18 @@ class LoginPageState extends State<LoginPage>{
     return ListView(
       children: <Widget>[
         Container(
-          margin: EdgeInsets.only(top: 20),
+          margin: EdgeInsets.only(top: 20 * ScreenUtil.getInstance().scaleHeight ),
           child: Text(
             '登录',
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontSize: 32.0,
+                fontSize: ScreenUtil().setSp(80),
                 color: Color(0xffc4c4c4)
             ),
           ),
         ),
         Container(
-          margin: EdgeInsets.only(top: 100),
+          margin: EdgeInsets.only(top: 40 * ScreenUtil.getInstance().scaleHeight),
           child: Form(
             key: _formKey,
             child: Column(
@@ -121,8 +122,8 @@ class LoginPageState extends State<LoginPage>{
                           controller: _validateNumberController,
                           decoration: InputDecoration(
                               hintText: '请输入验证码',
-                              icon: new Icon(
-                                  new IconData(0xe666, fontFamily: 'wxcIconFont')
+                              icon: Icon(
+                                 IconData(0xe777, fontFamily: 'wxcIconFont')
                               )
                           ),
                           keyboardType: TextInputType.number,
@@ -134,12 +135,12 @@ class LoginPageState extends State<LoginPage>{
                             return CommonUtil.checkValidateNumber(number);
                           },
                         ),
-                        flex: 2,
+                        flex: 3,
                       ),
                       Expanded(
                         child: Container(
-                          padding: EdgeInsets.only(bottom: 10),
-                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.only(bottom: 10  * ScreenUtil.getInstance().scaleHeight),
+                          margin: EdgeInsets.all(10  * ScreenUtil.getInstance().scaleHeight),
                           child: RaisedButton(
                             child: Text(
                               '获取验证码',
@@ -155,7 +156,7 @@ class LoginPageState extends State<LoginPage>{
                             },
                           ),
                         ),
-                        flex: 1,
+                        flex: 2,
                       )
                     ],
                   ),
@@ -175,7 +176,7 @@ class LoginPageState extends State<LoginPage>{
                   },
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 200),
+                  margin: EdgeInsets.only(top: 80  * ScreenUtil.getInstance().scaleHeight),
                   child: RaisedButton(
                     child: new Text(
                       buttonLabel,
@@ -196,7 +197,7 @@ class LoginPageState extends State<LoginPage>{
           ),
         ),
         Container(
-          margin: EdgeInsets.only(top: 20),
+          margin: EdgeInsets.only(bottom: 8),
           child: RaisedButton(
             child: Text(
               "如无账号，请先注册",
@@ -232,7 +233,9 @@ class LoginPageState extends State<LoginPage>{
           //            child: Text('登录'),
           //            onPressed: null),
           body: Container(
-            padding: EdgeInsets.all(10.0),
+            width: ScreenUtil.getInstance().width.toDouble(),
+            height: ScreenUtil.getInstance().height.toDouble(),
+            padding: EdgeInsets.all(10.0 * ScreenUtil.getInstance().scaleHeight),
             child: loginWidget(),
           )
         );
